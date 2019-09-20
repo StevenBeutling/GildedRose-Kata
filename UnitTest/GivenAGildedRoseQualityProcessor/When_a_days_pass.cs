@@ -5,7 +5,6 @@ using Xunit;
 
 namespace UnitTest.GivenAGildedRoseQualityProcessor
 {
-    
     public class When_days_pass : GivenAGildedRoseQualityProcessor
     {
         [Fact]
@@ -13,13 +12,19 @@ namespace UnitTest.GivenAGildedRoseQualityProcessor
         {
             for (var i = 0; i < 30; i++)
             {
-                GildedRoseQualityProcessor.UpdateQuality();
+                //GildedRoseQualityProcessor.UpdateQuality();
             }
 
             var item = Items.Single(x => x.ItemType == ItemType.DexterityVerst);
 
             item.Quality.Should().Be(0);
         }
+
+        //[Fact]
+        //public void blabla()
+        //{
+        //    GildedRoseTest()
+        //}
 
 
     }

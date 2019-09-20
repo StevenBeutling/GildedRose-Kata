@@ -5,7 +5,7 @@ namespace UnitTest.GivenAGildedRoseQualityProcessor
 {
     public class GivenAGildedRoseQualityProcessor
     {
-        protected readonly GildedRoseQualityProcessor GildedRoseQualityProcessor;
+        //protected readonly GildedRoseQualityProcessor GildedRoseQualityProcessor;
         protected IList<Item> Items;
 
         public GivenAGildedRoseQualityProcessor()
@@ -20,7 +20,7 @@ namespace UnitTest.GivenAGildedRoseQualityProcessor
                     SellIn = 5
                 }
             };
-            GildedRoseQualityProcessor = new GildedRoseQualityProcessor(Items);
+            //GildedRoseQualityProcessor = new GildedRoseQualityProcessor(Items);
         }
     }
 }

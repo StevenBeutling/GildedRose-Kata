@@ -37,7 +37,7 @@ namespace csharp
 				new Item {Name = "Conjured Mana Cake", SellIn = 3, Quality = 6, ItemType = ItemType.ConjuredManaCace}
             };
 
-            var app = new GildedRoseQualityProcessor(items);
+            //Todo: var app = new GildedRoseQualityProcessor(items);
 
 
             for (var i = 0; i < 31; i++)
@@ -46,10 +46,10 @@ namespace csharp
                 Console.WriteLine("name, sellIn, quality");
                 for (var j = 0; j < items.Count; j++)
                 {
-                    System.Console.WriteLine(items[j]);
+                    Console.WriteLine(items[j]);
                 }
                 Console.WriteLine("");
-                app.UpdateQuality();
+                //Todo: app.UpdateQuality();
             }
 
             Console.ReadKey();
