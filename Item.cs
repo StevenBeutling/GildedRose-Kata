@@ -21,7 +21,7 @@ namespace csharp
         public int SellIn { get; set; }
         public int Quality { get; set; }
         public ItemType ItemType { get; set; }
-        public bool IsConjured => ItemType != ItemType.ConjuredManaCace;
+        public bool IsConjured => ItemType == ItemType.ConjuredManaCace;
         public bool IsUnchangeable => ItemType == ItemType.SulfurasHandOfRagnaros;
         public override string ToString()
         {

@@ -19,34 +19,34 @@ namespace csharp
         public GildedRoseStateService()
         {
             _gildedRoseItems = new List<Item> {
-                new Item {Id= Guid.NewGuid(), Name = "+5 Dexterity Vest", SellIn = 10, Quality = 20, ItemType = ItemType.DexterityVerst},
-                new Item {Id= Guid.NewGuid(), Name = "Aged Brie", SellIn = 2, Quality = 0, ItemType = ItemType.AgedBrie},
-                new Item {Id= Guid.NewGuid(), Name = "Elixir of the Mongoose", SellIn = 5, Quality = 7, ItemType = ItemType.ElixirOfTheMongoose},
-                new Item {Id= Guid.NewGuid(), Name = "Sulfuras, Hand of Ragnaros", SellIn = 0, Quality = 80, ItemType = ItemType.SulfurasHandOfRagnaros},
-                new Item {Id= Guid.NewGuid(), Name = "Sulfuras, Hand of Ragnaros", SellIn = -1, Quality = 80, ItemType = ItemType.SulfurasHandOfRagnaros},
+                new Item {Id= Guid.NewGuid(), Name = ItemNames.DexterityVerst, SellIn = 10, Quality = 20, ItemType = ItemType.DexterityVerst},
+                new Item {Id= Guid.NewGuid(), Name = ItemNames.AgedBrie, SellIn = 2, Quality = 0, ItemType = ItemType.AgedBrie},
+                new Item {Id= Guid.NewGuid(), Name = ItemNames.ElixirOfTheMongoose, SellIn = 5, Quality = 7, ItemType = ItemType.ElixirOfTheMongoose},
+                new Item {Id= Guid.NewGuid(), Name = ItemNames.SulfurasHandOfRagnaros, SellIn = 0, Quality = 80, ItemType = ItemType.SulfurasHandOfRagnaros},
+                new Item {Id= Guid.NewGuid(), Name = ItemNames.SulfurasHandOfRagnaros, SellIn = -1, Quality = 80, ItemType = ItemType.SulfurasHandOfRagnaros},
                 new Item
                 {
                     Id= Guid.NewGuid(),
-                    Name = "Backstage passes to a TAFKAL80ETC concert",
+                    Name = ItemNames.BackstagePassesTAFKAL80ETCConcert,
                     SellIn = 15,
                     Quality = 20, ItemType = ItemType.BackstagePassesTAFKAL80ETCConcert
                 },
                 new Item
                 {
                     Id= Guid.NewGuid(),
-                    Name = "Backstage passes to a TAFKAL80ETC concert",
+                    Name = ItemNames.BackstagePassesTAFKAL80ETCConcert,
                     SellIn = 10,
                     Quality = 49, ItemType = ItemType.BackstagePassesTAFKAL80ETCConcert
                 },
                 new Item
                 {
                     Id= Guid.NewGuid(),
-                    Name = "Backstage passes to a TAFKAL80ETC concert",
+                    Name = ItemNames.BackstagePassesTAFKAL80ETCConcert,
                     SellIn = 5,
                     Quality = 49, ItemType = ItemType.BackstagePassesTAFKAL80ETCConcert
                 },
                 // this conjured item does not work properly yet
-                new Item {Id= Guid.NewGuid(), Name = "Conjured Mana Cake", SellIn = 3, Quality = 6, ItemType = ItemType.ConjuredManaCace}
+                new Item {Id= Guid.NewGuid(), Name = ItemNames.ConjuredManaCace, SellIn = 3, Quality = 6, ItemType = ItemType.ConjuredManaCace}
             };
         }
 

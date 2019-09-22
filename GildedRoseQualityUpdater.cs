@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace csharp
+﻿namespace csharp
 {
     public interface IGildedRoseQualityUpdater
     {
@@ -81,6 +79,14 @@ namespace csharp
                     {
                         _gildedRoseStateService.UpdateQuality(item.Id, 1);
                     }
+                }
+            }
+
+            if (item.IsConjured)
+            {
+                if (item.Quality > 0)
+                {
+                    _gildedRoseStateService.UpdateQuality(item.Id, -1);
                 }
             }
         }
