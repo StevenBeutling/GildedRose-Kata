@@ -83,7 +83,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GivenAGildedRoseQualityProcessor\GivenAGildedRoseQualityProcessor.cs" />
+    <Compile Include="GivenAGildedRoseQualityProcessor\GivenAGildedRoseQualityUpdater.cs" />
     <Compile Include="GivenAGildedRoseQualityProcessor\When_a_days_passes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
