@@ -2,7 +2,19 @@
 
 namespace csharp
 {
-    public class Item
+    public interface IItem
+    {
+        Guid Id { get; }
+        string Name { get; }
+        int SellIn { get; }
+        int Quality { get; }
+        ItemType ItemType { get; }
+        bool IsConjured { get; }
+        bool IsUnchangeable { get; }
+        string ToString();
+    }
+
+    public class Item : IItem
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
@@ -10,8 +22,7 @@ namespace csharp
         public int Quality { get; set; }
         public ItemType ItemType { get; set; }
         public bool IsConjured => ItemType != ItemType.ConjuredManaCace;
-
-
+        public bool IsUnchangeable => ItemType == ItemType.SulfurasHandOfRagnaros;
         public override string ToString()
         {
             return Name + ", " + SellIn + ", " + Quality;

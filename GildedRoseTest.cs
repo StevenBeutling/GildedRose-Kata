@@ -9,10 +9,10 @@ namespace csharp
         [Test]
         public void foo()
         {
-            IList<Item> Items = new List<Item> { new Item { Name = "foo", SellIn = 0, Quality = 0 } };
-            GildedRoseQualityProcessor app = new GildedRoseQualityProcessor(Items);
+            var items = new List<Item> { new Item { Name = "foo", SellIn = 0, Quality = 0 } };
+            var app = new GildedRoseQualityProcessor(items);
             app.UpdateQuality();
-            Assert.AreEqual("fixme", Items[0].Name);
+            Assert.AreEqual("foo", items[0].Name);
         }
     }
 }

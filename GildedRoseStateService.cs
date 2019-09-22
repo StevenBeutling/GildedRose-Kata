@@ -4,11 +4,19 @@ using System.Linq;
 
 namespace csharp
 {
-    public static class GildedRoseStateService
+    public interface IGildedRoseStateService
     {
-        private static List<Item> _gildedRoseItems;
+        IEnumerable<IItem> GetGildedRoseItems();
+        void UpdateQuality(Guid id, int qualityAddition);
+        void UpdateQualityToZero(Guid id);
+        void DecreaseSellIn(Guid id);
+    }
 
-        static GildedRoseStateService()
+    public class GildedRoseStateService : IGildedRoseStateService
+    {
+        private List<Item> _gildedRoseItems;
+
+        public GildedRoseStateService()
         {
             _gildedRoseItems = new List<Item> {
                 new Item {Id= Guid.NewGuid(), Name = "+5 Dexterity Vest", SellIn = 10, Quality = 20, ItemType = ItemType.DexterityVerst},
@@ -42,27 +50,27 @@ namespace csharp
             };
         }
 
-        public static IEnumerable<Item> GetGildedRoseItems()
+        public IEnumerable<IItem> GetGildedRoseItems()
         {
-            return _gildedRoseItems.AsReadOnly();
+            return _gildedRoseItems;
         }
 
-        public static void UpdateQuality(Guid id, int qualityAddition)
+        public void UpdateQuality(Guid id, int qualityAddition)
         {
             var item = _gildedRoseItems.Single(x => x.Id == id);
             item.Quality += qualityAddition;
         }
 
-        public static void UpdateQualityToZero(Guid id)
+        public void UpdateQualityToZero(Guid id)
         {
             var item = _gildedRoseItems.Single(x => x.Id == id);
             item.Quality = 0;
         }
 
-        public static void UpdateSellIn(Guid id, int sellInAddition)
+        public void DecreaseSellIn(Guid id)
         {
             var item = _gildedRoseItems.Single(x => x.Id == id);
-            item.Quality += sellInAddition;
+            item.SellIn--;
         }
     }
 }

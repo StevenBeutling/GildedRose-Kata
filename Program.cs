@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using Castle.MicroKernel.SubSystems.Configuration;
+using Castle.Windsor;
 
 namespace csharp
 {
@@ -7,8 +10,13 @@ namespace csharp
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("OMGHAI!");
+            var container = new WindsorContainer();
+            new ContainerInstaller().Install(container, new DefaultConfigurationStore());
 
+
+
+            Console.WriteLine("OMGHAI!");
+            
             var items = new List<Item>{
                 new Item {Name = "+5 Dexterity Vest", SellIn = 10, Quality = 20, ItemType = ItemType.DexterityVerst},
                 new Item {Name = "Aged Brie", SellIn = 2, Quality = 0, ItemType = ItemType.AgedBrie},
@@ -37,8 +45,10 @@ namespace csharp
 				new Item {Name = "Conjured Mana Cake", SellIn = 3, Quality = 6, ItemType = ItemType.ConjuredManaCace}
             };
 
-            //Todo: var app = new GildedRoseQualityProcessor(items);
+            var app = new GildedRoseQualityProcessor(items);
 
+            var batch = container.Resolve<IDailyItemProcessBatchJob>();
+            var gildedRoseStateService = container.Resolve<IGildedRoseStateService>();
 
             for (var i = 0; i < 31; i++)
             {
@@ -49,7 +59,22 @@ namespace csharp
                     Console.WriteLine(items[j]);
                 }
                 Console.WriteLine("");
-                //Todo: app.UpdateQuality();
+                app.UpdateQuality();
+            }
+
+            for (var i = 0; i < 31; i++)
+            {
+                Console.WriteLine("-------- day " + i + " --------");
+                Console.WriteLine("name, sellIn, quality");
+                var itemsFromService = gildedRoseStateService.GetGildedRoseItems();
+
+                foreach (var item in itemsFromService)
+                {
+                    Console.WriteLine(item);
+                }
+                
+                Console.WriteLine("");
+                batch.Run();
             }
 
             Console.ReadKey();
